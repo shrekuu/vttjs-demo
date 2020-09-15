@@ -149,10 +149,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+ // 视频元素
 
-var videoEl = document.querySelector('#video');
-var subtitlesContainer = document.getElementById('subtitlesContainer');
-var isSubtitlesLoaded = false;
+var videoEl = document.querySelector('#video'); // 字幕元素
+
+var subtitlesEl = document.querySelector('#subtitles'); // 准备字幕解析器
+
 var parser = new WebVTT.Parser(window, WebVTT.StringDecoder());
 var cues = [];
 var regions = [];
@@ -163,14 +165,16 @@ parser.oncue = function (cue) {
 
 parser.onregion = function (region) {
   regions.push(region);
-};
+}; // 字幕选择
+// 取字幕
 
-var subtitlesLangPickerChange$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["fromEvent"])(subtitlesLangPicker, 'change').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_14__["map"])(function (e) {
+
+var isSubtitlesLoaded = false;
+var subtitlesCache = []; // const subtitlesLangPickerEl =
+
+Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["fromEvent"])(document.querySelector('#subtitlesLangPicker'), 'change').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_14__["map"])(function (e) {
   return e.target.value;
-})); // 取字幕
-
-var subtitlesCache = [];
-subtitlesLangPickerChange$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_14__["startWith"])(document.querySelector('#subtitlesLangPicker').value), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_14__["switchMap"])(function (subtitlesLang) {
+}), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_14__["startWith"])(document.querySelector('#subtitlesLangPicker').value), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_14__["switchMap"])(function (subtitlesLang) {
   // 有缓存的话优先使用缓存
   if (subtitlesCache[subtitlesLang]) {
     return Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["of"])(subtitlesCache[subtitlesLang]);
@@ -190,37 +194,45 @@ subtitlesLangPickerChange$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1
     return Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["of"])(res);
   }));
 })).subscribe(function (res) {
+  // 拿到字幕啦
   var vtt = res.response; // 清空旧的
 
   cues = [];
-  regions = [];
-  parser.parse(vtt);
-  parser.flush();
-  isSubtitlesLoaded = true;
-});
-var videoQualityPickerChange$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["fromEvent"])(videoQualityPicker, 'change').subscribe(function (_ref3) {
-  var value = _ref3.target.value;
-  console.log('value', value);
-  var currentTime = video.currentTime;
-  video.src = value;
-  video.load(); // 好像不需要这行
+  regions = []; // 解析字段
 
-  video.currentTime = currentTime;
-  video.play();
-});
+  parser.parse(vtt);
+  parser.flush(); // 标记字幕加载成功
+
+  isSubtitlesLoaded = true;
+}); // 视频清晰度切换, 即切换视频
+
+var videoQualityPickerChange$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["fromEvent"])(document.querySelector('#videoQualityPicker'), 'change').subscribe(function (_ref3) {
+  var value = _ref3.target.value;
+  var currentTime = videoEl.currentTime;
+  videoEl.src = value;
+  videoEl.load(); // 好像不需要这行
+
+  videoEl.currentTime = currentTime;
+  videoEl.play();
+}); // 视频播放进度更新
+
 Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["fromEvent"])(videoEl, 'timeupdate').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_14__["takeWhile"])(function () {
   return isSubtitlesLoaded;
-}), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_14__["throttleTime"])(500)).subscribe(function (e) {
+}), // 字幕加载好后再换
+Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_14__["throttleTime"])(500) // 节流一下 500ms
+).subscribe(function (e) {
+  // 找到对应字幕
   var currentCue = cues.find(function (cue) {
     return cue.startTime <= videoEl.currentTime && videoEl.currentTime <= cue.endTime;
   });
 
   if (!currentCue) {
-    subtitlesContainer.innerHTML = '';
+    subtitlesEl.innerHTML = '';
     return;
-  }
+  } // 把字幕更新上去
 
-  WebVTT.processCues(window, [currentCue], subtitlesContainer);
+
+  WebVTT.processCues(window, [currentCue], subtitlesEl);
 });
 
 /***/ }),

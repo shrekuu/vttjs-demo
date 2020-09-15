@@ -1,30 +1,36 @@
 <html>
 <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="renderer" content="webkit">
     <title>vtt.js in the browser</title>
+
     <link rel="icon" href="data:,">
     <script src='/bower_components/vtt.js/vtt.min.js'></script>
     <link rel='stylesheet' href='/dist/app.css'>
 </head>
 <body>
 
-<div id='videoContainer' class='video-container'>
+<div id='videoSectionContainer' class='video-section-container'>
+    <div class='video-section-content'>
+        <video class='video'
+               id='video'
+               controls
+               preload
+               autoplay
+               webkit-playsinline='true'
+               playsinline='true'
+               x5-video-player-type='h5'
+               x5-video-player-fullscreen='true'
+               x-webkit-airplay='allow'
+               x5-video-orientation='portraint'
+               src='https://1252139118.vod2.myqcloud.com/8e24db68vodtransgzp1252139118/69e7e26c5285890807421903646/v.f30.mp4'
+        ></video>
 
-    <video class='video'
-           id='video'
-           controls
-           preload
-           autoplay
-           webkit-playsinline='true'
-           playsinline='true'
-           x5-video-player-type='h5'
-           x5-video-player-fullscreen='true'
-           x-webkit-airplay='allow'
-           x5-video-orientation='portraint'
-           src='https://1252139118.vod2.myqcloud.com/8e24db68vodtransgzp1252139118/69e7e26c5285890807421903646/v.f30.mp4'
-    ></video>
-
-    <div id='subtitlesContainer' class='subtitles-container'></div>
+        <div id='subtitles' class='subtitles'></div>
+    </div>
 </div>
 
 <div class='video-actions'>
@@ -38,6 +44,12 @@
         <option value='en'>English</option>
     </select>
 </div>
+
+<script src='/vendor/vconsole.min.js'></script>
+<script>
+  // init vConsole
+  var vConsole = new VConsole();
+</script>
 
 <script src='/dist/app.js'></script>
 
