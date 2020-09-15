@@ -1,0 +1,51 @@
+{
+  "name": "vtt.js",
+  "version": "0.12.1",
+  "homepage": "https://github.com/andreasgal/vtt.js",
+  "authors": [
+    "Rick Eyre <rick.eyre@hotmail.com>",
+    "Andreas Gal <gal@mozilla.com>",
+    "David Humphrey <david.humphrey@senecacollege.ca>",
+    "Jeffrey Espiritu <jeff_pro3@hotmail.com>",
+    "Alex Kotliar <alexkotliar@gmail.com>",
+    "Ali Al Dallal <ali@alicoding.com>",
+    "Edwin Lim <limed3@gmail.com>",
+    "Michael Afidchao <mdafidchao@learn.senecac.on.ca>",
+    "Shayan Ahmad <szahmad@learn.senecac.on.ca>",
+    "Jordan Raffoul <raffoul.jordan@gmail.com>",
+    "Vince Lee <vince.lee.lien@gmail.com>",
+    "Kyle Barnhart <kyle@barnhart.ca>",
+    "Mandeep Garg <mkgarg1@learn.senecac.on.ca>",
+    "Dale Karp <me@dale.io>",
+    "Marcus Saad <mv.nsaad@gmail.com>",
+    "Cyril Concolato <cyril.concolato@telecom-paristech.fr>"
+  ],
+  "description": "WebVTT parser in JavaScript.",
+  "main": [
+    "vtt.js",
+    "vtt.min.js"
+  ],
+  "keywords": [
+    "WebVTT",
+    "vtt",
+    "track"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.12.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.12.1",
+    "commit": "0ce241fe914ee65e7e24c73b7b8991fb44df235f"
+  },
+  "_source": "https://github.com/RickEyre/vtt.js-dist.git",
+  "_target": "^0.12.1",
+  "_originalSource": "vtt.js",
+  "_direct": true
+}

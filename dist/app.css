@@ -1,0 +1,21 @@
+.video-container {
+  width: 640px;
+  height: 360px;
+  position: relative;
+  border: 1px dotted deeppink;
+}
+
+.video-container .video {
+  width: 640px;
+  height: 360px;
+}
+
+.video-actions {
+  display: flex;
+}
+
+.video-actions select {
+  margin: 10px 20px;
+  font-size: 16px;
+}
+

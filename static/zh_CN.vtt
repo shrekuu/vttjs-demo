@@ -1,0 +1,23 @@
+WEBVTT
+Region: id=fred width=50% lines=3 regionanchor=0%,100% viewportanchor=10%,90% scroll=up
+Region: id=bill width=50% lines=3 regionanchor=100%,100% viewportanchor=90%,90% scroll=up
+
+1
+00:00:00.050 --> 00:00:02.637
+[字幕文字 1]
+
+2
+00:00:03.745 --> 00:00:05.836 region:fred align:left
+[字幕文字 2]
+
+3
+00:00:07.951 --> 00:00:10.454 region:bill align:right
+[字幕文字 3]
+
+4
+00:00:10.951 --> 00:00:20.454 region:bill align:right
+[字幕文字 4 10-20]
+
+5
+00:00:23.951 --> 00:00:30.454 region:bill align:right
+[字幕文字 5 23-30]
