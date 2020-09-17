@@ -16670,8 +16670,8 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/lin/code/try-vtt.js/assets/js/app.js */"./assets/js/app.js");
-module.exports = __webpack_require__(/*! /Users/lin/code/try-vtt.js/assets/sass/app.scss */"./assets/sass/app.scss");
+__webpack_require__(/*! /Users/lin/code/vttjs-demo/assets/js/app.js */"./assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/lin/code/vttjs-demo/assets/sass/app.scss */"./assets/sass/app.scss");
 
 
 /***/ })

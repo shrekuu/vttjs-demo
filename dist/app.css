@@ -33,3 +33,67 @@
   font-size: 16px;
 }
 
+.white {
+  color: white;
+}
+
+.lime {
+  color: lime;
+}
+
+.cyan {
+  color: aqua;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.magenta {
+  color: fuchsia;
+}
+
+.blue {
+  color: blue;
+}
+
+.black {
+  color: black;
+}
+
+.bg_white {
+  background: white;
+}
+
+.bg_lime {
+  background: lime;
+}
+
+.bg_cyan {
+  background: aqua;
+}
+
+.bg_red {
+  background: red;
+}
+
+.bg_yellow {
+  background: yellow;
+}
+
+.bg_magenta {
+  background: fuchsia;
+}
+
+.bg_blue {
+  background: blue;
+}
+
+.bg_black {
+  background: black;
+}
+

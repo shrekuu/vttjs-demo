@@ -4,20 +4,20 @@ Region: id=bill width=50% lines=3 regionanchor=100%,100% viewportanchor=90%,90% 
 
 1
 00:00:00.050 --> 00:00:02.637
-[English Cue 1]
+<c.yellow.bg_blue>English Cue 1</c>
 
 2
 00:00:03.745 --> 00:00:05.836 region:fred align:left
-[English Cue 2]
+<c.yellow.bg_blue.magenta.bg_black>English Cue 2</c>
 
 3
 00:00:07.951 --> 00:00:10.454 region:bill align:right
-[English Cue 3]
+English Cue 3
 
 4
 00:00:10.951 --> 00:00:20.454
-[English 4 10-20]
+English 4 10-20
 
 5
 00:00:23.951 --> 00:00:30.454
-[English 5 23-30]
+English 5 23-30
